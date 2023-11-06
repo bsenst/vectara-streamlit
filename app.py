@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 
 # Define the search term input field
-search_term = st.text_input("Geben Sie einen Suchbegriff ein:")
+search_term = st.text_input("Geben Sie einen Suchbegriff ein:", placeholder="Welches Antibiotikum ist bei Pyelonephritis einzusetzen?")
 
 if search_term:
     url = "https://api.vectara.io:443/v1/query"
@@ -60,7 +60,6 @@ if search_term:
     st.write(summary)
 
     documents = search_results["responseSet"][0]["document"]
-    for el in search_results["responseSet"][0]["response"]:
-        st.caption(documents[el["documentIndex"]]["id"])
-        st.caption(el["score"])
-        st.markdown(el["text"].replace("*", "").replace("%START_SNIPPET%", "**").replace("%END_SNIPPET%", "**"))
+    for i, el in enumerate(search_results["responseSet"][0]["response"]):
+        st.caption("["+str(i)+"] "+documents[el["documentIndex"]]["id"]+", "+el["score"])
+        st.markdown(el["text"].replace("*", "").replace("%START_SNIPPET%", "<b>").replace("%END_SNIPPET%", "</b>"), unsafe_allow_html=True)
