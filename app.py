@@ -62,4 +62,4 @@ if search_term:
     documents = search_results["responseSet"][0]["document"]
     for i, el in enumerate(search_results["responseSet"][0]["response"]):
         st.caption("["+str(i+1)+"] "+documents[el["documentIndex"]]["id"]+", "+str(el["score"]))
-        st.caption(el["text"].replace("*","").replace("%START_SNIPPET%","").replace("%END_SNIPPET%",""))
+        st.write(" ".join(el["text"].split()).replace("*","").replace("%START_SNIPPET%","").replace("%END_SNIPPET%",""))
