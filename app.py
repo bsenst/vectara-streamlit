@@ -2,6 +2,10 @@ import json
 import requests
 import streamlit as st
 
+st.caption("Diese Anwendung ist zu Testzwecken alleine. / This application is for testing purposes alone.")
+st.markdown("[Vectara Hackathon Submission](https://lablab.ai/event/rag-llms-with-your-data/fritzlabs/submission)")
+st.markdown("[GitHub Repository](https://github.com/bsenst/vectara-streamlit)")
+
 # Define the search term input field
 search_term = st.text_input("Geben Sie einen Suchbegriff ein:", placeholder="Welches Antibiotikum ist bei Pyelonephritis einzusetzen?")
 
