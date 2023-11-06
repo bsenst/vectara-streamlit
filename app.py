@@ -62,5 +62,5 @@ if search_term:
     documents = search_results["responseSet"][0]["document"]
     for el in search_results["responseSet"][0]["response"]:
         st.caption(documents[el["documentIndex"]]["id"])
-        st.write(el["text"].replace("*", "").replace("%START_SNIPPET%", "**").replace("%END_SNIPPET%", "**"))
         st.caption(el["score"])
+        st.markdown(el["text"].replace("*", "").replace("%START_SNIPPET%", "**").replace("%END_SNIPPET%", "**"))
