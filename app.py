@@ -8,7 +8,7 @@ search_term = st.text_input("Geben Sie einen Suchbegriff ein:")
 if search_term:
     url = "https://api.vectara.io:443/v1/query"
     headers = {
-        "Authorization": st.secrets.bearer_token,
+        "x-api-key": st.secrets.api_key,
         "customer-id": str(st.secrets.customer_id)
     }
     
