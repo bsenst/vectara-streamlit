@@ -56,7 +56,7 @@ if search_term:
     search_results = json.loads(response.text)
     
     # Display search results
-    summary = search_results["responseSet"][0]["summary"]["text"]
+    summary = search_results["responseSet"][0]["summary"][0]["text"]
     st.write(summary)
 
     documents = search_results["responseSet"][0]["document"]
