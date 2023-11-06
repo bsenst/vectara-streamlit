@@ -56,4 +56,11 @@ if search_term:
     search_results = json.loads(response.text)
     
     # Display search results
-    st.write(search_results)
+    summary = search_results["responseSet"][0]["summary"]["text"]
+    st.write(summary)
+
+    documents = search_results["responseSet"][0]["document"]
+    for el in search_results["responseSet"][0]["response"]:
+        st.write(el["text"])
+        st.caption(el["score"])
+        st.caption(documents[el["documentIndex"]]["id"])
