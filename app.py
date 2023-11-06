@@ -61,5 +61,5 @@ if search_term:
 
     documents = search_results["responseSet"][0]["document"]
     for i, el in enumerate(search_results["responseSet"][0]["response"]):
-        st.caption("["+str(i)+"] "+documents[el["documentIndex"]]["id"]+", "+str(el["score"]))
-        st.markdown(el["text"].replace("*", "").replace("%START_SNIPPET%", "<b>").replace("%END_SNIPPET%", "</b>"), unsafe_allow_html=True)
+        st.caption("["+str(i+1)+"] "+documents[el["documentIndex"]]["id"]+", "+str(el["score"]))
+        st.markdown(el["text"].replace("*","").replace("<","").replace(">","").replace("%START_SNIPPET%","<b>").replace("%END_SNIPPET%","</b>"), unsafe_allow_html=True)
